@@ -15,6 +15,8 @@
 		556B81BD1EF38E02002EFB29 /* examenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B81BC1EF38E02002EFB29 /* examenTests.swift */; };
 		556B81C81EF38E02002EFB29 /* examenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B81C71EF38E02002EFB29 /* examenUITests.swift */; };
 		556B81D61EF39533002EFB29 /* celdaPropiaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B81D51EF39533002EFB29 /* celdaPropiaTableViewCell.swift */; };
+		556B81D81EF3FB96002EFB29 /* PokemonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B81D71EF3FB96002EFB29 /* PokemonTableViewController.swift */; };
+		556B81DA1EF41653002EFB29 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B81D91EF41653002EFB29 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		556B81C71EF38E02002EFB29 /* examenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = examenUITests.swift; sourceTree = "<group>"; };
 		556B81C91EF38E02002EFB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		556B81D51EF39533002EFB29 /* celdaPropiaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = celdaPropiaTableViewCell.swift; sourceTree = "<group>"; };
+		556B81D71EF3FB96002EFB29 /* PokemonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonTableViewController.swift; sourceTree = "<group>"; };
+		556B81D91EF41653002EFB29 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				556B81AE1EF38E01002EFB29 /* Assets.xcassets */,
 				556B81B01EF38E01002EFB29 /* LaunchScreen.storyboard */,
 				556B81D51EF39533002EFB29 /* celdaPropiaTableViewCell.swift */,
+				556B81D71EF3FB96002EFB29 /* PokemonTableViewController.swift */,
+				556B81D91EF41653002EFB29 /* Pokemon.swift */,
 			);
 			path = examen;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556B81DA1EF41653002EFB29 /* Pokemon.swift in Sources */,
 				556B81AA1EF38E00002EFB29 /* ViewController.swift in Sources */,
 				556B81D61EF39533002EFB29 /* celdaPropiaTableViewCell.swift in Sources */,
+				556B81D81EF3FB96002EFB29 /* PokemonTableViewController.swift in Sources */,
 				556B81A81EF38E00002EFB29 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
