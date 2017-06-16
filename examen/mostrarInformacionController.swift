@@ -9,13 +9,21 @@
 import UIKit
 
 class mostrarInformacionController: UIViewController {
-    
+    var pokemon: Pokemon?
     @IBOutlet weak var nombre: UILabel!
     @IBOutlet weak var imagenPrincipal: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        if let pokemon = pokemon {
+            nombre.text = pokemon.nombre
+            imagenPrincipal.image = pokemon.imagenPrincipal
+        }
+        // Enable the Save button only if the text field has a valid Meal name.
+        //updateSaveButtonState()
+        
     }
     
     override func didReceiveMemoryWarning() {

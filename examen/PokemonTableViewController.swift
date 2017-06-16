@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class PokemonTableViewController: UITableViewController {
 
@@ -131,10 +132,34 @@ class PokemonTableViewController: UITableViewController {
         pokemones += [pokemon1, pokemon2, pokemon3]
         
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+        case "AddItem":
+            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+            
+        case "mostrarDetalle":
+            guard let mostrarInformacionController = segue.destination as? mostrarInformacionController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let celdaSeleccionada = sender as? celdaPropiaTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: celdaSeleccionada) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let pokemonSeleccionado = pokemones[indexPath.row]
+            mostrarInformacionController.pokemon = pokemonSeleccionado
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+        }
     }
 
 }
