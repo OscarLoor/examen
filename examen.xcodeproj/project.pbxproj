@@ -40,7 +40,7 @@
 		556B81AC1EF38E01002EFB29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		556B81AE1EF38E01002EFB29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		556B81B11EF38E01002EFB29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		556B81B31EF38E01002EFB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		556B81B31EF38E01002EFB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = examen/Info.plist; sourceTree = "<group>"; };
 		556B81B81EF38E02002EFB29 /* examenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = examenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		556B81BC1EF38E02002EFB29 /* examenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = examenTests.swift; sourceTree = "<group>"; };
 		556B81BE1EF38E02002EFB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +81,7 @@
 				556B81BB1EF38E02002EFB29 /* examenTests */,
 				556B81C61EF38E02002EFB29 /* examenUITests */,
 				556B81A51EF38E00002EFB29 /* Products */,
+				556B81B31EF38E01002EFB29 /* Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,7 +103,6 @@
 				556B81AB1EF38E01002EFB29 /* Main.storyboard */,
 				556B81AE1EF38E01002EFB29 /* Assets.xcassets */,
 				556B81B01EF38E01002EFB29 /* LaunchScreen.storyboard */,
-				556B81B31EF38E01002EFB29 /* Info.plist */,
 			);
 			path = examen;
 			sourceTree = "<group>";
