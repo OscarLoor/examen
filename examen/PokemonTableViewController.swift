@@ -8,6 +8,7 @@
 
 import UIKit
 import os.log
+import FirebaseDatabase
 
 class PokemonTableViewController: UITableViewController {
 
@@ -18,14 +19,54 @@ class PokemonTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+        ref.observe(DataEventType.value, with: { (snapshot) in
+            print("Snapshot es")
+            print(snapshot)
+            print("Valores")
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                    print("Datos ")
+                    //print(rest.value.imagen)
+                
+                guard let restDict = rest.value as? [String: Any] else { continue }
+                var nombre = restDict["nombre"] as? String
+                var imagen = restDict["imagen"] as? String
+                print(nombre)
+                print(imagen)
+                
+                let url = URL(string: imagen!)
+                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                
+                
+                var pokemonCreacion = Pokemon(nombre: nombre!, imagenPrincipal: UIImage(data: data!), urlImagen: imagen!)
+                self.pokemones.append(pokemonCreacion!)
+            }
+            
+            self.tableView.reloadData()
+            
+            
+            
+            // ...
+        })
+        /*
+        
+        refHandle = postRef.observe(DataEventType.value, with: { (snapshot) in
+            print(snapshot)
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            // ...
+        })
+        */
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         print("Entro en table view")
-        cargarEjemploDePokemones()
+        //cargarEjemploDePokemones()
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,26 +153,7 @@ class PokemonTableViewController: UITableViewController {
     
     //MARK: Private Methods
     
-    private func cargarEjemploDePokemones() {
-        let photo1 = UIImage(named: "meal1")
-        let photo2 = UIImage(named: "meal2")
-        let photo3 = UIImage(named: "meal3")
-        
-        guard let pokemon1 = Pokemon(nombre: "Charmander", imagenPrincipal: photo1) else {
-            fatalError("No se puede crear pokemon1")
-        }
-        
-        guard let pokemon2 = Pokemon(nombre: "Pikachu", imagenPrincipal: photo2) else {
-            fatalError("No se puede crear pokemon2")
-        }
-        
-        guard let pokemon3 = Pokemon(nombre: "Ditto", imagenPrincipal: photo3) else {
-            fatalError("No se puede crear pokemon3")
-        }
-        
-        pokemones += [pokemon1, pokemon2, pokemon3]
-        
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         super.prepare(for: segue, sender: sender)
@@ -156,6 +178,7 @@ class PokemonTableViewController: UITableViewController {
             
             let pokemonSeleccionado = pokemones[indexPath.row]
             mostrarInformacionController.pokemon = pokemonSeleccionado
+
             
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")

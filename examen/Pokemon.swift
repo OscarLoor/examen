@@ -13,10 +13,11 @@ class Pokemon {
     
     var nombre: String
     var imagenPrincipal: UIImage?
+    var urlImagen: String
     
     //MARK: Initialization
     
-    init?(nombre: String, imagenPrincipal: UIImage?) {
+    init?(nombre: String, imagenPrincipal: UIImage?, urlImagen: String) {
         
         // Initialization should fail if there is no name or if the rating is negative.
         if nombre.isEmpty{
@@ -25,6 +26,7 @@ class Pokemon {
         // Initialize stored properties.
         self.nombre = nombre
         self.imagenPrincipal = imagenPrincipal
+        self.urlImagen = urlImagen
         
     }
     

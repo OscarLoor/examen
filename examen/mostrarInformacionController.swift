@@ -7,11 +7,28 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class mostrarInformacionController: UIViewController {
     var pokemon: Pokemon?
     @IBOutlet weak var nombre: UILabel!
     @IBOutlet weak var imagenPrincipal: UIImageView!
+    @IBAction func guardarDato(_ sender: UIButton) {
+        print("Guardando")
+        if let pokemon = pokemon {
+            print( pokemon.nombre)
+            print( pokemon.urlImagen)
+            
+            var ref: DatabaseReference!
+            
+            ref = Database.database().reference().childByAutoId()
+            ref.setValue(["nombre": pokemon.nombre, "imagen": pokemon.urlImagen])
+            
+
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
